@@ -53,10 +53,33 @@ class _MyAppState extends State<MyApp> {
       print('error occur while loading.');
       return Text('Error occur');
     } else if (snapshot.connectionState == ConnectionState.done) {
-      return TomatoApp();
+      return WebRtc();
     } else {
       return SplashScreen();
     }
+  }
+}
+
+class WebRtc extends StatelessWidget {
+  const WebRtc({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return WebRtcContent();
+  }
+}
+
+class WebRtcContent extends StatefulWidget {
+  const WebRtcContent({Key? key}) : super(key: key);
+
+  @override
+  State<WebRtcContent> createState() => _WebRtcContentState();
+}
+
+class _WebRtcContentState extends State<WebRtcContent> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 
