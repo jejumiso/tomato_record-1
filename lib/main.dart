@@ -66,9 +66,7 @@ class TomatoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<UserNotifier>(
-      create: (BuildContext context) {
-        return UserNotifier();
-      },
+      create: (__) => UserNotifier(),
       child: MaterialApp.router(
         theme: ThemeData(
             primarySwatch: Colors.red,

@@ -35,16 +35,16 @@ class HomeLocation extends BeamLocation {
 }
 
 class InputLocation extends BeamLocation {
-  @override
-  Widget builder(BuildContext context, Widget navigator) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: categoryNotifier),
-        ChangeNotifierProvider(create: (context) => SelectImageNotifier())
-      ],
-      child: super.builder(context, navigator),
-    );
-  }
+  // @override
+  // Widget builder(BuildContext context, Widget navigator) {
+  //   return MultiProvider(
+  //     providers: [
+  //       ChangeNotifierProvider.value(value: categoryNotifier),
+  //       ChangeNotifierProvider(create: (context) => SelectImageNotifier())
+  //     ],
+  //     child: super.builder(context, navigator),
+  //   );
+  // }
 
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) {

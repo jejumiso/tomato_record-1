@@ -23,6 +23,7 @@ class _MultiImageSelectState extends State<MultiImageSelect> {
       builder: (context, constraints) {
         SelectImageNotifier selectImageNotifier =
             context.watch<SelectImageNotifier>();
+
         Size _size = MediaQuery.of(context).size;
         var imageSize = (_size.width / 3) - common_padding * 2;
         var imageCorner = 16.0;
