@@ -1,4 +1,4 @@
-import 'package:beamer/src/beamer.dart';
+import 'package:beamer/beamer.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -8,7 +8,6 @@ import 'package:tomato_record/data/item_model.dart';
 import 'package:tomato_record/data/user_model.dart';
 import 'package:tomato_record/repo/chat_service.dart';
 import 'package:tomato_record/repo/item_service.dart';
-import 'package:tomato_record/router/locations.dart';
 import 'package:tomato_record/screens/item/similar_item.dart';
 import 'package:tomato_record/states/category_notifier.dart';
 import 'package:tomato_record/states/user_notifier.dart';

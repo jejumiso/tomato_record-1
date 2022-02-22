@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:latlng/latlng.dart';

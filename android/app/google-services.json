@@ -1,41 +1,107 @@
 {
   "project_info": {
-    "project_number": "991789698622",
-    "project_id": "tomato-record",
-    "storage_bucket": "tomato-record.appspot.com"
+    "project_number": "369745063821",
+    "project_id": "fir-flutter-auth-8d7f6",
+    "storage_bucket": "fir-flutter-auth-8d7f6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:991789698622:android:c44a5bac175cd2e9d28b6f",
+        "mobilesdk_app_id": "1:369745063821:android:ba879bfc94bddd4e3497c4",
         "android_client_info": {
-          "package_name": "com.thecodingpapa.tomato_record"
+          "package_name": "com.example.email_auth"
         }
       },
       "oauth_client": [
         {
-          "client_id": "991789698622-casfs1otr3juqr71uh9mqv4rktkbmeoi.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.thecodingpapa.tomato_record",
-            "certificate_hash": "3937b2583d0d05ac1d8079e91f375ad2cc9382b6"
-          }
-        },
-        {
-          "client_id": "991789698622-j8mssonoorantvvouuinpgqro3qc917a.apps.googleusercontent.com",
+          "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC-MSQnsDtWVWtvYQeIyPQbyaZFSfZV9YE"
+          "current_key": "AIzaSyBkaB-g0a8vz8FN2KcywfJv5t5uXZf9ws4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "991789698622-j8mssonoorantvvouuinpgqro3qc917a.apps.googleusercontent.com",
+              "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369745063821:android:1810e03a2dfabd853497c4",
+        "android_client_info": {
+          "package_name": "com.example.tomato_record"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369745063821-44b4lnmmimd0t2ea5dp7j9bc87278957.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tomato_record",
+            "certificate_hash": "3c2adde3b41005b84c5cf89506f780705f00f7f8"
+          }
+        },
+        {
+          "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkaB-g0a8vz8FN2KcywfJv5t5uXZf9ws4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369745063821:android:94bd7674c1b9da873497c4",
+        "android_client_info": {
+          "package_name": "com.thecodingpapa.tomato_record"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369745063821-6rqugls11f5q8e1idnvsgjt3anmp0nti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thecodingpapa.tomato_record",
+            "certificate_hash": "3c2adde3b41005b84c5cf89506f780705f00f7f8"
+          }
+        },
+        {
+          "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkaB-g0a8vz8FN2KcywfJv5t5uXZf9ws4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

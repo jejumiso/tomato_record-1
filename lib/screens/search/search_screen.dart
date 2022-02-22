@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tomato_record/constants/common_size.dart';
 import 'package:tomato_record/data/item_model.dart';
 import 'package:tomato_record/repo/algolia_service.dart';
-import 'package:beamer/beamer.dart';
 import 'package:tomato_record/widgets/item_list_widget.dart';
 
 class SearchScreen extends StatefulWidget {

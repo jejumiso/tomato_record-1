@@ -6,7 +6,6 @@ import 'package:tomato_record/router/locations.dart';
 import 'package:tomato_record/screens/start_screen.dart';
 import 'package:tomato_record/screens/splash_screen.dart';
 import 'package:tomato_record/states/user_notifier.dart';
-import 'package:tomato_record/utils/logger.dart';
 
 final _routerDelegate = BeamerDelegate(
     guards: [
@@ -94,7 +93,6 @@ class TomatoApp extends StatelessWidget {
                     primary: Colors.white,
                     minimumSize: Size(48, 48))),
             appBarTheme: AppBarTheme(
-                backwardsCompatibility: false,
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black87,
                 elevation: 2,
