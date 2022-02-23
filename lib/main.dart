@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
       print('error occur while loading.');
       return Text('Error occur');
     } else if (snapshot.connectionState == ConnectionState.done) {
-      return WebRtc();
+      return TomatoApp();
     } else {
       return SplashScreen();
     }
