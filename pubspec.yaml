@@ -42,7 +42,7 @@ dependencies:
   firebase_storage: ^10.0.4
   shimmer: ^2.0.0
   geoflutterfire: ^3.0.1
-  image_picker: ^0.8.4+2
+  image_picker: ^0.8.4+9
   smooth_page_indicator: ^1.0.0+2
   map: ^1.0.0
   latlng: ^0.1.0
