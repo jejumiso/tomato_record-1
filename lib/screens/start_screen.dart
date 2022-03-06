@@ -23,6 +23,7 @@ class StartScreen extends StatelessWidget {
               IntroPage2(),
               IntroPage3Permission(),
               // AddressPage(),
+              AuthPage()
             ]),
       ),
     );

@@ -7,12 +7,86 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:369745063821:android:ba879bfc94bddd4e3497c4",
+        "mobilesdk_app_id": "1:369745063821:android:4d4f653d022f42f13497c4",
         "android_client_info": {
-          "package_name": "com.example.email_auth"
+          "package_name": "com.android.application"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkaB-g0a8vz8FN2KcywfJv5t5uXZf9ws4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369745063821:android:3a3138634fc2616f3497c4",
+        "android_client_info": {
+          "package_name": "com.connectycube.flutter.p2p_call_sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369745063821-uai2570297bg7u1ag1n2tlfje165697j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.connectycube.flutter.p2p_call_sample",
+            "certificate_hash": "3c2adde3b41005b84c5cf89506f780705f00f7f8"
+          }
+        },
+        {
+          "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkaB-g0a8vz8FN2KcywfJv5t5uXZf9ws4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369745063821:android:3acfafc696f39f713497c4",
+        "android_client_info": {
+          "package_name": "com.example.tomato_app3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369745063821-bnkb54001v614rd4rlvicpbon25r1u6c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tomato_app3",
+            "certificate_hash": "3c2adde3b41005b84c5cf89506f780705f00f7f8"
+          }
+        },
         {
           "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
           "client_type": 3
@@ -80,10 +154,47 @@
       },
       "oauth_client": [
         {
-          "client_id": "369745063821-6rqugls11f5q8e1idnvsgjt3anmp0nti.apps.googleusercontent.com",
+          "client_id": "369745063821-tc5k60et1hd4ibjkebhg9rehl938r60a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.thecodingpapa.tomato_record",
+            "certificate_hash": "950969e27a1f5ee70cb15bd212508afe309f95ad"
+          }
+        },
+        {
+          "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkaB-g0a8vz8FN2KcywfJv5t5uXZf9ws4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369745063821-qs4brovfd7m30ojcf75d8bp2v4ioqjhr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369745063821:android:b592f4518fd2023a3497c4",
+        "android_client_info": {
+          "package_name": "twilio.flutter.programmable_video_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369745063821-c36844ik0hube7vf4mho9qj6h4ik82gm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "twilio.flutter.programmable_video_example",
             "certificate_hash": "3c2adde3b41005b84c5cf89506f780705f00f7f8"
           }
         },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tomato_record/constants/common_size.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -20,7 +21,7 @@ Future<bool> _requestPermission() async {
 
   if (statues[Permission.storage] == PermissionStatus.granted &&
       statues[Permission.camera] == PermissionStatus.granted &&
-      statues[Permission.photos] == PermissionStatus.granted) {
+      statues[Permission.sms] == PermissionStatus.granted) {
     return true;
   } else {
     return false;
@@ -81,9 +82,11 @@ class _IntroPage3PermissionState extends State<IntroPage3Permission> {
                 ElevatedButton(
                     onPressed: () async {
                       var result = await _requestPermission();
-                      setState(() {
-                        _storagePermission = result;
-                      });
+                      if (result) {
+                        context.read<PageController>().animateToPage(3,
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.ease);
+                      }
                     },
                     child: Text("권한요청"))
               ],

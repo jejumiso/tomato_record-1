@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:tomato_record/constants/common_size.dart';
 import 'package:tomato_record/utils/logger.dart';
+import 'package:get_phone_number/get_phone_number.dart';
 
 class AuthPage extends StatefulWidget {
   AuthPage({Key? key}) : super(key: key);
@@ -88,6 +89,14 @@ class _AuthPageState extends State<AuthPage> {
                     SizedBox(
                       height: common_sm_padding,
                     ),
+                    TextButton(
+                        onPressed: () async {
+                          String phoneNumber = await GetPhoneNumber().get();
+                          _phoneNumberController.text = phoneNumber;
+
+                          print('getPhoneNumber result: $phoneNumber');
+                        },
+                        child: Text('번호입력')),
                     TextButton(
                         onPressed: () async {
                           if (_verificationStatus ==

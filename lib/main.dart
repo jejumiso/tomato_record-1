@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
 
   StatelessWidget _splashLoadingWidget(AsyncSnapshot<Object?> snapshot) {
     if (snapshot.hasError) {
-      print('인터넷연결 안되었나???.');
+      print('error occur while loading.');
       return Text('Error occur');
     } else if (snapshot.connectionState == ConnectionState.done) {
       return TomatoApp();

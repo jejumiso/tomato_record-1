@@ -48,6 +48,7 @@ dependencies:
   latlng: ^0.1.0
   algolia: ^1.0.4
   permission_handler: ^9.2.0
+  get_phone_number: ^2.0.1
 
 dev_dependencies:
   flutter_test:
