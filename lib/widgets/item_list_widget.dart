@@ -7,25 +7,29 @@ import 'package:tomato_record/data/item_model.dart';
 import 'package:tomato_record/router/locations.dart';
 import 'package:tomato_record/utils/logger.dart';
 
-class ItemListWidget extends StatelessWidget {
+class ItemListWidget extends StatefulWidget {
   final ItemModel item;
-  double? imgSize;
-  ItemListWidget(this.item, {Key? key, this.imgSize}) : super(key: key);
+
+  ItemListWidget(this.item, {Key? key}) : super(key: key);
 
   @override
+  State<ItemListWidget> createState() => _ItemListWidgetState();
+}
+
+class _ItemListWidgetState extends State<ItemListWidget> {
+  late double imgSize;
+  @override
   Widget build(BuildContext context) {
-    if (imgSize == null) {
-      Size size = MediaQuery.of(context).size;
-      imgSize = size.width / 4;
-    }
+    Size size = MediaQuery.of(context).size;
+    imgSize = size.width / 4;
 
     return InkWell(
       onTap: () {
         BeamState beamState = Beamer.of(context).currentConfiguration!;
         String currentPath = beamState.uri.toString();
         String newPath = (currentPath == '/')
-            ? '/$LOCATION_ITEM/${item.itemKey}'
-            : '$currentPath/${item.itemKey}';
+            ? '/$LOCATION_ITEM/${widget.item.itemKey}'
+            : '$currentPath/${widget.item.itemKey}';
 
         logger.d('newPath - $newPath');
         context.beamToNamed(newPath);
@@ -38,7 +42,7 @@ class ItemListWidget extends StatelessWidget {
                 height: imgSize,
                 width: imgSize,
                 child: ExtendedImage.network(
-                  item.imageDownloadUrls[0],
+                  widget.item.imageDownloadUrls[0],
                   fit: BoxFit.cover,
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(12),
@@ -51,14 +55,14 @@ class ItemListWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  item.title,
+                  widget.item.title,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
                 Text(
                   '53일전',
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
-                Text('${item.price.toString()}원'),
+                Text('${widget.item.price.toString()}원'),
                 Expanded(
                   child: Container(),
                 ),
