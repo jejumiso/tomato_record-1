@@ -64,7 +64,7 @@ class _ItemsPageState extends State<ItemsPage> {
         },
         itemBuilder: (context, index) {
           ItemModel item = items[index];
-          return ItemListWidget(item, imgSize: imgSize);
+          return ItemListWidget(item);
         },
         itemCount: items.length,
       ),

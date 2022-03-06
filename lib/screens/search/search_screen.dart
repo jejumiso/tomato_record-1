@@ -73,8 +73,8 @@ class _SearchScreenState extends State<SearchScreen> {
               padding: EdgeInsets.all(common_padding),
               itemBuilder: (context, index) {
                 ItemModel item = items[index];
-                Size size = MediaQuery.of(context).size;
-                return ItemListWidget(item, imgSize: size.width / 4);
+                // Size size = MediaQuery.of(context).size;
+                return ItemListWidget(item);
               },
               separatorBuilder: (context, index) {
                 return Divider(

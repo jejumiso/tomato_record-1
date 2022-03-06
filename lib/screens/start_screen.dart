@@ -7,7 +7,7 @@ import 'package:tomato_record/screens/start/intro_page.dart';
 class StartScreen extends StatelessWidget {
   StartScreen({Key? key}) : super(key: key);
 
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
