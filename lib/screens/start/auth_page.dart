@@ -2,9 +2,7 @@ import 'package:extended_image/extended_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tomato_record/constants/common_size.dart';
-import 'package:tomato_record/constants/shared_pref_keys.dart';
 import 'package:tomato_record/utils/logger.dart';
 
 class AuthPage extends StatefulWidget {
@@ -248,12 +246,12 @@ class _AuthPageState extends State<AuthPage> {
     });
   }
 
-  _getAddress() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String address = prefs.getString(SHARED_ADDRESS) ?? "";
-    double lat = prefs.getDouble(SHARED_LAT) ?? 0;
-    double lon = prefs.getDouble(SHARED_LON) ?? 0;
-  }
+  // _getAddress() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String address = prefs.getString(SHARED_ADDRESS) ?? "";
+  //   double lat = prefs.getDouble(SHARED_LAT) ?? 0;
+  //   double lon = prefs.getDouble(SHARED_LON) ?? 0;
+  // }
 }
 
 enum VerificationStatus {

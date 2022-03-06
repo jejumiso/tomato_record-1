@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tomato_record/constants/data_keys.dart';
 import 'package:tomato_record/data/user_model.dart';
-import 'package:tomato_record/utils/logger.dart';
 
 class UserService {
   static final UserService _userService = UserService._internal();

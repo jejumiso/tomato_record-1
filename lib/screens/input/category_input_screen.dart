@@ -27,7 +27,7 @@ class CategoryInputScreen extends StatelessWidget {
                       categoryNotifier.setNewCategoryWithKor(
                           categoriesMapEngToKor.values.elementAt(index));
                       String asdf = categoryNotifier.currentCategoryInKor;
-                      logger.d('message  ${asdf}');
+                      logger.d('message  $asdf');
                       Beamer.of(context).beamBack();
                     },
                     title: Text(

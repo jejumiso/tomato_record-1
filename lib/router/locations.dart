@@ -1,15 +1,12 @@
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:provider/provider.dart';
 import 'package:tomato_record/screens/chat/chatroom_screen.dart';
 import 'package:tomato_record/screens/home_screen.dart';
 import 'package:tomato_record/screens/input/category_input_screen.dart';
 import 'package:tomato_record/screens/input/input_screen.dart';
 import 'package:tomato_record/screens/item/item_detail_screen.dart';
 import 'package:tomato_record/screens/search/search_screen.dart';
-import 'package:tomato_record/states/category_notifier.dart';
-import 'package:tomato_record/states/select_image_notifier.dart';
 import 'package:tomato_record/utils/logger.dart';
 
 const LOCATION_HOME = 'home';
