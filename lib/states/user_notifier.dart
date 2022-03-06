@@ -36,12 +36,24 @@ class UserNotifier extends ChangeNotifier {
           userKey: "",
           phoneNumber: phoneNumber,
           address: address,
+          agreement: false,
           geoFirePoint: GeoFirePoint(lat, lon),
           createdDate: DateTime.now().toUtc());
 
       await UserService().createNewUser(userModel.toJson(), userKey);
       _userModel = await UserService().getUserModel(userKey);
       logger.d(_userModel!.toJson().toString());
+    }
+  }
+
+  void updateAggrement(UserModel? userModel, bool aggrement) async {
+    await _updateAggrement(userModel, aggrement);
+  }
+
+  Future _updateAggrement(UserModel? userModel, bool aggrement) async {
+    if (user != null) {
+      String userKey = userModel!.userKey;
+      await UserService().updateAggrement(aggrement, userKey);
     }
   }
 

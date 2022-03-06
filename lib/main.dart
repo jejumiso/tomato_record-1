@@ -13,15 +13,20 @@ final _routerDelegate = BeamerDelegate(
           pathBlueprints: [
             ...HomeLocation().pathBlueprints,
             ...InputLocation().pathBlueprints,
-            ...ItemLocation().pathBlueprints
+            ...ItemLocation().pathBlueprints,
+            ...AgreementLocation().pathBlueprints
           ],
           check: (context, location) {
             return context.watch<UserNotifier>().user != null;
           },
           showPage: BeamPage(child: StartScreen()))
     ],
-    locationBuilder: BeamerLocationBuilder(
-        beamLocations: [HomeLocation(), InputLocation(), ItemLocation()]));
+    locationBuilder: BeamerLocationBuilder(beamLocations: [
+      AgreementLocation(),
+      HomeLocation(),
+      ItemLocation(),
+      InputLocation(),
+    ]));
 
 void main() {
   Provider.debugCheckInvalidValueType = null;

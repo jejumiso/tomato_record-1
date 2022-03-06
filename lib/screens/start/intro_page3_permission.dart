@@ -36,10 +36,10 @@ class _IntroPage3PermissionState extends State<IntroPage3Permission> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        Size size = MediaQuery.of(context).size;
+        // Size size = MediaQuery.of(context).size;
 
-        final imgSize = size.width - 32;
-        final sizeOfPosImg = imgSize * 0.1;
+        // final imgSize = size.width - 32;
+        // final sizeOfPosImg = imgSize * 0.1;
 
         _checkPermission() async {
           _storagePermission = await Permission.storage.status.isGranted;

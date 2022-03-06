@@ -30,5 +30,6 @@ const DOC_PRICE = "price";
 const DOC_NEGOTIABLE = "negotiable";
 const DOC_DETAIL = "detail";
 const DOC_ADDRESS = "address";
+const DOC_AGREEMENT = "aggrement";
 const DOC_CREATEDDATE = "createdDate";
 const DOC_PHONENUMBER = "phoneNumber";

@@ -1,6 +1,7 @@
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tomato_record/screens/agreement_screen.dart';
 import 'package:tomato_record/screens/chat/chatroom_screen.dart';
 import 'package:tomato_record/screens/home_screen.dart';
 import 'package:tomato_record/screens/input/category_input_screen.dart';
@@ -10,6 +11,7 @@ import 'package:tomato_record/screens/search/search_screen.dart';
 import 'package:tomato_record/utils/logger.dart';
 
 const LOCATION_HOME = 'home';
+const LOCATION_AGREEMENT = 'aggrement';
 const LOCATION_INPUT = 'input';
 const LOCATION_ITEM = 'item';
 const LOCATION_SEARCH = 'search';
@@ -28,21 +30,22 @@ class HomeLocation extends BeamLocation {
   }
 
   @override
-  List get pathBlueprints => ['/', '/$LOCATION_SEARCH'];
+  List get pathBlueprints => ['/', '/$LOCATION_HOME', '/$LOCATION_SEARCH'];
+}
+
+class AgreementLocation extends BeamLocation {
+  @override
+  List<BeamPage> buildPages(BuildContext context, BeamState state) {
+    return [
+      BeamPage(key: ValueKey(LOCATION_AGREEMENT), child: AgreementScreen())
+    ];
+  }
+
+  @override
+  List get pathBlueprints => ['/$LOCATION_AGREEMENT'];
 }
 
 class InputLocation extends BeamLocation {
-  // @override
-  // Widget builder(BuildContext context, Widget navigator) {
-  //   return MultiProvider(
-  //     providers: [
-  //       ChangeNotifierProvider.value(value: categoryNotifier),
-  //       ChangeNotifierProvider(create: (context) => SelectImageNotifier())
-  //     ],
-  //     child: super.builder(context, navigator),
-  //   );
-  // }
-
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) {
     return [

@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     UserModel? userModel = context.read<UserNotifier>().userModel;
+
     return Scaffold(
       body: (userModel == null)
           ? Container()
@@ -68,8 +69,12 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                FirebaseAuth.instance.signOut();
-                context.beamToNamed("/");
+                if (userModel!.agreement == false) {
+                  context.beamToNamed('/$LOCATION_AGREEMENT');
+                }
+
+                // FirebaseAuth.instance.signOut();
+                // context.beamToNamed("/");
               },
               icon: Icon(CupertinoIcons.nosign)),
           IconButton(

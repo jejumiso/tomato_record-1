@@ -17,6 +17,16 @@ class UserService {
     }
   }
 
+  Future updateAggrement(bool aggrement, String userKey) async {
+    DocumentReference<Map<String, dynamic>> documentReference =
+        FirebaseFirestore.instance.collection(COL_USERS).doc(userKey);
+    final DocumentSnapshot documentSnapshot = await documentReference.get();
+
+    if (documentSnapshot.exists) {
+      await documentReference.update({"aggrement": aggrement});
+    }
+  }
+
   Future<UserModel> getUserModel(String userKey) async {
     DocumentReference<Map<String, dynamic>> documentReference =
         FirebaseFirestore.instance.collection(COL_USERS).doc(userKey);

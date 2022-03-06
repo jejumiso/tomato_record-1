@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:tomato_record/constants/common_size.dart';
 import 'package:tomato_record/utils/logger.dart';
 import 'package:provider/provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class IntroPage extends StatefulWidget {
   IntroPage({
