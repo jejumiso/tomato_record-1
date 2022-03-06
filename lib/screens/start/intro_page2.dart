@@ -5,16 +5,16 @@ import 'package:tomato_record/utils/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class IntroPage extends StatefulWidget {
-  IntroPage({
+class IntroPage2 extends StatefulWidget {
+  IntroPage2({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<IntroPage> createState() => _IntroPageState();
+  State<IntroPage2> createState() => _IntroPage2State();
 }
 
-class _IntroPageState extends State<IntroPage> {
+class _IntroPage2State extends State<IntroPage2> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -54,7 +54,7 @@ class _IntroPageState extends State<IntroPage> {
                   ),
                 ),
                 Text(
-                  '우리 동네 중고 직거래 토마토마켓',
+                  '2번째페이지',
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 Text(
@@ -67,7 +67,7 @@ class _IntroPageState extends State<IntroPage> {
                   children: [
                     TextButton(
                       onPressed: () async {
-                        context.read<PageController>().animateToPage(1,
+                        context.read<PageController>().animateToPage(2,
                             duration: Duration(milliseconds: 500),
                             curve: Curves.ease);
                         logger.d('on text button clicked!!!');
