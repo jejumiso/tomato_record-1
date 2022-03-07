@@ -220,6 +220,7 @@ class TomatoApp extends StatelessWidget {
         HomeLocation(),
         LoginLocation(),
         BooksLocation(),
+        StartLoc
       ],
     ),
     guards: [
@@ -227,7 +228,7 @@ class TomatoApp extends StatelessWidget {
       BeamGuard(
         pathPatterns: ['/', '/books', '/books/*'],
         check: (context, location) => context.read<UserNotifier>().user != null,
-        beamToNamed: (_, __) => '/login',
+        beamToNamed: (_, __) => '/start',
       ),
     ],
   );
