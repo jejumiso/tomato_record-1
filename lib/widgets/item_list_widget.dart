@@ -25,8 +25,8 @@ class _ItemListWidgetState extends State<ItemListWidget> {
 
     return InkWell(
       onTap: () {
-        BeamState beamState = Beamer.of(context).currentConfiguration!;
-        String currentPath = beamState.uri.toString();
+        RouteInformation beamState = Beamer.of(context).currentConfiguration!;
+        String currentPath = beamState.location.toString();
         String newPath = (currentPath == '/')
             ? '/$LOCATION_ITEM/${widget.item.itemKey}'
             : '$currentPath/${widget.item.itemKey}';

@@ -1,9 +1,48 @@
+import 'package:beamer/beamer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:beamer/beamer.dart';
 import 'package:provider/provider.dart';
+// import 'package:tomato_record/router/locations.dart';
+// import 'package:tomato_record/screens/start_screen.dart';
 import 'package:tomato_record/screens/splash_screen.dart';
 import 'package:tomato_record/states/user_notifier.dart';
+
+void main() {
+  Provider.debugCheckInvalidValueType = null;
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: _initialization,
+        builder: (context, snapshot) {
+          return AnimatedSwitcher(
+              duration: Duration(milliseconds: 300),
+              child: _splashLoadingWidget(snapshot));
+        });
+  }
+
+  StatelessWidget _splashLoadingWidget(AsyncSnapshot<Object?> snapshot) {
+    if (snapshot.hasError) {
+      print('error occur while loading.');
+      return Text('Error occur');
+    } else if (snapshot.connectionState == ConnectionState.done) {
+      return TomatoApp();
+    } else {
+      return SplashScreen();
+    }
+  }
+}
 
 // DATA
 const List<Map<String, String>> books = [
@@ -57,14 +96,14 @@ class HomeScreen extends StatelessWidget {
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserNotifier>(context).user;
+    final isAuthenticated = Provider.of<UserNotifier>(context).user != null;
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
       ),
       body: Center(
-        child: user != null
+        child: isAuthenticated
             ? Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -200,19 +239,6 @@ class BooksLocation extends BeamLocation<BeamState> {
       ];
 }
 
-// AUTHENTICATION STATE
-class AuthenticationNotifier extends ChangeNotifier {
-  bool _isAuthenticated = false;
-
-  bool get isAuthenticated => _isAuthenticated;
-
-  void login() {
-    _isAuthenticated = true;
-    notifyListeners();
-  }
-}
-
-// APP
 class TomatoApp extends StatelessWidget {
   final routerDelegate = BeamerDelegate(
     locationBuilder: BeamerLocationBuilder(
@@ -225,7 +251,7 @@ class TomatoApp extends StatelessWidget {
     guards: [
       // Guard /books and /books/* by beaming to /login if the user is unauthenticated:
       BeamGuard(
-        pathPatterns: ['/', '/books', '/books/*'],
+        pathPatterns: ['/books', '/books/*'],
         check: (context, location) => context.read<UserNotifier>().user != null,
         beamToNamed: (_, __) => '/login',
       ),
@@ -235,45 +261,44 @@ class TomatoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<UserNotifier>(
-      create: (context) => UserNotifier(),
+      create: (__) => UserNotifier(),
       child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerDelegate: routerDelegate,
+        theme: ThemeData(
+            primarySwatch: Colors.red,
+            fontFamily: 'DoHyeon',
+            hintColor: Colors.grey[350],
+            textTheme: TextTheme(
+              button: TextStyle(color: Colors.white),
+              subtitle1: TextStyle(color: Colors.black87, fontSize: 15),
+              subtitle2: TextStyle(color: Colors.grey, fontSize: 13),
+              bodyText1: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal),
+              bodyText2: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w100),
+            ),
+            textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    primary: Colors.white,
+                    minimumSize: Size(48, 48))),
+            appBarTheme: AppBarTheme(
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black87,
+                elevation: 2,
+                titleTextStyle: TextStyle(
+                  color: Colors.black87,
+                ),
+                actionsIconTheme: IconThemeData(color: Colors.black87)),
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                selectedItemColor: Colors.black87,
+                unselectedItemColor: Colors.black54)),
         routeInformationParser: BeamerParser(),
+        routerDelegate: routerDelegate,
       ),
     );
-  }
-}
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: _initialization,
-        builder: (context, snapshot) {
-          return AnimatedSwitcher(
-              duration: Duration(milliseconds: 300),
-              child: _splashLoadingWidget(snapshot));
-        });
-  }
-
-  StatelessWidget _splashLoadingWidget(AsyncSnapshot<Object?> snapshot) {
-    if (snapshot.hasError) {
-      print('error occur while loading.');
-      return Text('Error occur');
-    } else if (snapshot.connectionState == ConnectionState.done) {
-      return TomatoApp();
-    } else {
-      return SplashScreen();
-    }
   }
 }

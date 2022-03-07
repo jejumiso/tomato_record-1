@@ -86,8 +86,8 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
 
     await ChatService().createNewChatroom(_chatroomModel);
 
-    BeamState beamState = Beamer.of(context).currentConfiguration!;
-    String currentPath = beamState.uri.toString();
+    RouteInformation beamState = Beamer.of(context).currentConfiguration!;
+    String currentPath = beamState.location.toString();
     String newPath =
         (currentPath == '/') ? '/$chatroomKey' : '$currentPath/$chatroomKey';
 
