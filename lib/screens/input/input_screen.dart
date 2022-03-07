@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:extended_image/extended_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:beamer/beamer.dart';
+// import 'package:beamer/beamer.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:tomato_record/constants/common_size.dart';
 import 'package:tomato_record/data/item_model.dart';
@@ -82,7 +82,7 @@ class _InputScreenState extends State<InputScreen> {
 
     await ItemService()
         .createNewItem(itemModel, itemKey, userNotifier.user!.uid);
-    context.beamBack();
+    // context.beamBack();
   }
 
   @override
@@ -101,7 +101,7 @@ class _InputScreenState extends State<InputScreen> {
               appBar: AppBar(
                 leading: TextButton(
                     onPressed: () {
-                      context.beamBack();
+                      // context.beamBack();
                     },
                     style: TextButton.styleFrom(
                         primary: Colors.black87,
@@ -160,8 +160,7 @@ class _InputScreenState extends State<InputScreen> {
                   _divider,
                   ListTile(
                     onTap: () {
-                      context.beamToNamed(
-                          '/$LOCATION_INPUT/$LOCATION_CATEGORY_INPUT');
+                      // context.beamToNamed('/$LOCATION_INPUT/$LOCATION_CATEGORY_INPUT');
                     },
                     dense: true,
                     title: Text(

@@ -1,4 +1,3 @@
-import 'package:beamer/beamer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           MaterialButton(
             onPressed: () {
-              context.beamToNamed('/$LOCATION_INPUT');
+              // context.beamToNamed('/$LOCATION_INPUT');
             },
             shape: CircleBorder(),
             height: 40,
@@ -69,12 +68,12 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
               onPressed: () {
                 FirebaseAuth.instance.signOut();
-                context.beamToNamed("/");
+                // context.beamToNamed("/");
               },
               icon: Icon(CupertinoIcons.nosign)),
           IconButton(
               onPressed: () {
-                context.beamToNamed('/$LOCATION_SEARCH');
+                // context.beamToNamed('/$LOCATION_SEARCH');
               },
               icon: Icon(CupertinoIcons.search)),
           IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.text_justify)),

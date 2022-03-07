@@ -5,7 +5,7 @@ import 'package:map/map.dart';
 import 'package:tomato_record/data/item_model.dart';
 import 'package:tomato_record/data/user_model.dart';
 import 'package:tomato_record/repo/item_service.dart';
-import 'package:beamer/beamer.dart';
+// import 'package:beamer/beamer.dart';
 import 'package:tomato_record/router/locations.dart';
 
 class MapPage extends StatefulWidget {
@@ -59,7 +59,7 @@ class _MapPageState extends State<MapPage> {
         height: 24,
         child: InkWell(
           onTap: () {
-            context.beamToNamed('/$LOCATION_ITEM/${itemModel.itemKey}');
+            // context.beamToNamed('/$LOCATION_ITEM/${itemModel.itemKey}');
           },
           child: ExtendedImage.network(
             itemModel.imageDownloadUrls[0],

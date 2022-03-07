@@ -12,9 +12,9 @@ class SimilarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return ItemDetailScreen(_itemModel.itemKey);
-        }));
+        // Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+        //   return ItemDetailScreen(_itemModel.itemKey);
+        // }));
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

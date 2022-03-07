@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tomato_record/states/category_notifier.dart';
 import 'package:provider/provider.dart';
-import 'package:beamer/beamer.dart';
+// import 'package:beamer/beamer.dart';
 import 'package:tomato_record/utils/logger.dart';
 
 class CategoryInputScreen extends StatelessWidget {
@@ -28,7 +28,7 @@ class CategoryInputScreen extends StatelessWidget {
                           categoriesMapEngToKor.values.elementAt(index));
                       String asdf = categoryNotifier.currentCategoryInKor;
                       logger.d('message  $asdf');
-                      Beamer.of(context).beamBack();
+                      // Beamer.of(context).beamBack();
                     },
                     title: Text(
                       categoriesMapEngToKor.values.elementAt(index),

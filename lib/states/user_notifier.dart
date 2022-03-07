@@ -17,12 +17,14 @@ class UserNotifier extends ChangeNotifier {
 
   void initUser() {
     FirebaseAuth.instance.authStateChanges().listen((user) async {
-      await _setNewUser(user);
+      if (_userModel == null) {
+        await _createNewUser(user);
+      } else {}
       notifyListeners();
     });
   }
 
-  Future _setNewUser(User? user) async {
+  Future _createNewUser(User? user) async {
     _user = user;
     if (user != null && user.phoneNumber != null) {
       SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -35,6 +37,7 @@ class UserNotifier extends ChangeNotifier {
       UserModel userModel = UserModel(
           userKey: "",
           phoneNumber: phoneNumber,
+          agreement: false,
           address: address,
           geoFirePoint: GeoFirePoint(lat, lon),
           createdDate: DateTime.now().toUtc());
@@ -47,4 +50,6 @@ class UserNotifier extends ChangeNotifier {
 
   User? get user => _user;
   UserModel? get userModel => _userModel;
+  bool islogin() => _user != null;
+  bool isaggrement() => _userModel != null && _userModel!.agreement;
 }

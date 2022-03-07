@@ -22,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-  beamer:
-    dependency: "direct main"
-    description:
-      name: beamer
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.14.1"
   bech32:
     dependency: transitive
     description:
@@ -268,6 +261,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  go_router:
+    dependency: "direct main"
+    description:
+      name: go_router
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.4"
   http:
     dependency: transitive
     description:
@@ -359,6 +359,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  logging:
+    dependency: transitive
+    description:
+      name: logging
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   map:
     dependency: "direct main"
     description:
