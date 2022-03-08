@@ -17,9 +17,15 @@ class UserNotifier extends ChangeNotifier {
 
   void initUser() {
     FirebaseAuth.instance.authStateChanges().listen((user) async {
-      if (_userModel == null) {
+      if (user != null && _userModel == null) {
         await _createNewUser(user);
-      } else {}
+      } else if (user != null && _userModel != null) {
+        //update
+      } else {
+        // if (user == null) {
+        _user = null;
+        _userModel = null;
+      }
       notifyListeners();
     });
   }
@@ -37,15 +43,37 @@ class UserNotifier extends ChangeNotifier {
       UserModel userModel = UserModel(
           userKey: "",
           phoneNumber: phoneNumber,
-          agreement: false,
+          company: "mcvc",
           address: address,
+          agreement: false,
           geoFirePoint: GeoFirePoint(lat, lon),
+          imgUrl: "",
+          allowTheUseImgUrl: false,
+          imgUrl2: "",
+          allowTheUseImgUrl2: false,
+          nickname: "",
+          gender: "M", //M=남자, F=  여자
+          age: 30,
+          state: "Online",
+          isBackgroundReceive: false,
           createdDate: DateTime.now().toUtc());
 
       await UserService().createNewUser(userModel.toJson(), userKey);
       _userModel = await UserService().getUserModel(userKey);
       logger.d(_userModel!.toJson().toString());
     }
+  }
+
+  Future updateAggrement(String userKey, bool isAgreement) async {
+    await UserService().updateAggrement(userKey, isAgreement);
+    _userModel!.agreement = isAgreement;
+    notifyListeners();
+  }
+
+  Future updateProfile(String userKey, bool isAgreement) async {
+    // await UserService().updateAggrement(userKey, isAgreement);
+    // _userModel!.agreement = isAgreement;
+    notifyListeners();
   }
 
   User? get user => _user;

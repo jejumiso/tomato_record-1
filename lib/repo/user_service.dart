@@ -25,4 +25,10 @@ class UserService {
     UserModel userModel = UserModel.fromSnapshot(documentSnapshot);
     return userModel;
   }
+
+  Future updateAggrement(String userKey, bool isAgreement) async {
+    DocumentReference<Map<String, dynamic>> documentReference =
+        FirebaseFirestore.instance.collection(COL_USERS).doc(userKey);
+    await documentReference.update({'$DOC_AGREEMENT': isAgreement});
+  }
 }

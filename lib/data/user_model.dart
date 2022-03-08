@@ -5,18 +5,38 @@ import 'package:tomato_record/constants/data_keys.dart';
 class UserModel {
   late String userKey;
   late String phoneNumber;
+  late String company;
   late String address;
   late bool agreement;
   late GeoFirePoint geoFirePoint;
+  late String imgUrl;
+  late bool allowTheUseImgUrl;
+  late String imgUrl2;
+  late bool allowTheUseImgUrl2;
+  late String nickname;
+  late String gender;
+  late int age;
+  late String state; //online,offline,calling,standby
+  late bool isBackgroundReceive;
   late DateTime createdDate;
   DocumentReference? reference;
 
   UserModel(
       {required this.userKey,
       required this.phoneNumber,
+      required this.company,
       required this.address,
       required this.agreement,
       required this.geoFirePoint,
+      required this.imgUrl,
+      required this.allowTheUseImgUrl,
+      required this.imgUrl2,
+      required this.allowTheUseImgUrl2,
+      required this.nickname,
+      required this.gender,
+      required this.age,
+      required this.state,
+      required this.isBackgroundReceive,
       required this.createdDate,
       this.reference});
 

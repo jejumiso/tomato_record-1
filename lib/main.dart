@@ -83,8 +83,6 @@ class TomatoApp extends StatelessWidget {
     redirect: (state) {
       // if the user is not logged in, they need to login
       final loggedIn = userNotifier.islogin();
-      final loggingIn = state.subloc == '/start';
-
       final isaggrement = userNotifier.isaggrement();
 
 //[1] 로그인 안되었으면.
