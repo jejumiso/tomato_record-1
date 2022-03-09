@@ -22,4 +22,21 @@ class ImageStorage {
 
     return downloadUrls;
   }
+
+  static Future<String> uploadUserImage(Uint8List image, String userKey) async {
+    var metaData = SettableMetadata(contentType: 'image/jpeg');
+
+    String downloadUrls = "";
+
+    Reference ref = FirebaseStorage.instance.ref('images_user/$userKey/1.jpg');
+    if (image.isNotEmpty) {
+      await ref.putData(image, metaData).catchError((onError) {
+        logger.e(onError.toString());
+      });
+
+      downloadUrls = await ref.getDownloadURL();
+    }
+
+    return downloadUrls;
+  }
 }

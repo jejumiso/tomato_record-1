@@ -11,7 +11,6 @@ import 'package:tomato_record/screens/item/similar_item.dart';
 import 'package:tomato_record/states/category_notifier.dart';
 import 'package:tomato_record/states/user_notifier.dart';
 import 'package:provider/provider.dart';
-import 'package:tomato_record/utils/logger.dart';
 import 'package:tomato_record/utils/time_calculation.dart';
 
 class ItemDetailScreen extends StatefulWidget {

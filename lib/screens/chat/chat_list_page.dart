@@ -1,6 +1,7 @@
 // import 'package:beamer/beamer.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tomato_record/data/chatroom_model.dart';
 import 'package:tomato_record/repo/chat_service.dart';
 
@@ -23,6 +24,7 @@ class ChatListPage extends StatelessWidget {
                   return ListTile(
                     onTap: () {
                       // context.beamToNamed('/${chatroomModel.chatroomKey}');
+                      context.push('/chat?query=${chatroomModel.chatroomKey}');
                     },
                     leading: ExtendedImage.network(
                       'https://randomuser.me/api/portraits/women/11.jpg',

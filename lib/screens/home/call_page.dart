@@ -5,22 +5,22 @@ import 'package:tomato_record/data/item_model.dart';
 import 'package:tomato_record/repo/item_service.dart';
 import 'package:tomato_record/widgets/item_list_widget.dart';
 
-class ItemsPage extends StatefulWidget {
+class CallPage extends StatefulWidget {
   final String userKey;
-  const ItemsPage({Key? key, required this.userKey}) : super(key: key);
+  const CallPage({Key? key, required this.userKey}) : super(key: key);
 
   @override
-  State<ItemsPage> createState() => _ItemsPageState();
+  State<CallPage> createState() => _CallPageState();
 }
 
-class _ItemsPageState extends State<ItemsPage> {
+class _CallPageState extends State<CallPage> {
   bool init = false;
   List<ItemModel> items = [];
 
   @override
   void initState() {
     if (!init) {
-      _onRefresh();
+      _onRefresh('');
       init = true;
     }
     super.initState();
@@ -28,21 +28,66 @@ class _ItemsPageState extends State<ItemsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        Size size = MediaQuery.of(context).size;
-        final imgSize = size.width / 4;
+    return Column(
+      children: [
+        Expanded(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              Size size = MediaQuery.of(context).size;
+              final imgSize = size.width / 4;
 
-        return AnimatedSwitcher(
-            duration: Duration(milliseconds: 300),
-            child: (items.isNotEmpty)
-                ? _listView(imgSize)
-                : _shimmerListView(imgSize));
-      },
+              return AnimatedSwitcher(
+                  duration: Duration(milliseconds: 300),
+                  child: (items.isNotEmpty)
+                      ? _listView(imgSize)
+                      : _shimmerListView(imgSize));
+            },
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+                onPressed: () async => await _onRefresh(''),
+                child: Text('랭킹순', style: TextStyle(fontSize: 12)),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    primary: Colors.white,
+                    minimumSize: Size(60, 20))),
+            TextButton(
+                onPressed: () async => await _onRefresh(''),
+                child: Text('접속순', style: TextStyle(fontSize: 12)),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.grey,
+                    primary: Colors.white,
+                    minimumSize: Size(60, 20))),
+            SizedBox(
+              width: 35,
+            ),
+            TextButton(
+                onPressed: () async => await _onRefresh('남자'),
+                child: Text('남자', style: TextStyle(fontSize: 12)),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    primary: Colors.white,
+                    minimumSize: Size(60, 10))),
+            TextButton(
+                onPressed: () async => await _onRefresh('여자'),
+                child: Text('여자', style: TextStyle(fontSize: 12)),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.grey,
+                    primary: Colors.white,
+                    minimumSize: Size(60, 10))),
+            SizedBox(
+              width: 5,
+            ),
+          ],
+        )
+      ],
     );
   }
 
-  Future _onRefresh() async {
+  Future _onRefresh(String searchKey) async {
     items.clear();
     items.addAll(await ItemService().getItems(widget.userKey));
     setState(() {});
@@ -50,7 +95,7 @@ class _ItemsPageState extends State<ItemsPage> {
 
   Widget _listView(double imgSize) {
     return RefreshIndicator(
-      onRefresh: _onRefresh,
+      onRefresh: () => _onRefresh(''),
       child: ListView.separated(
         padding: EdgeInsets.all(common_padding),
         separatorBuilder: (context, index) {

@@ -2,7 +2,6 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tomato_record/constants/common_size.dart';
 import 'package:tomato_record/data/item_model.dart';
-import 'package:tomato_record/screens/item/item_detail_screen.dart';
 
 class SimilarItem extends StatelessWidget {
   final ItemModel _itemModel;

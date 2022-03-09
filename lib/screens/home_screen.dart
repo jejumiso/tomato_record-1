@@ -1,14 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tomato_record/data/user_model.dart';
 import 'package:tomato_record/screens/chat/chat_list_page.dart';
-import 'package:tomato_record/screens/home/items_page.dart';
+import 'package:tomato_record/screens/home/call_page.dart';
 import 'package:tomato_record/screens/home/map_page.dart';
-import 'package:tomato_record/screens/profile/profile_screen.dart';
+import 'package:tomato_record/screens/home/talk_page.dart';
+import 'package:tomato_record/screens/others/other_screen.dart';
 import 'package:tomato_record/states/user_notifier.dart';
-import 'package:tomato_record/widgets/expandable_fab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -29,55 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
           : IndexedStack(
               index: _bottomSelectedIndex,
               children: [
-                ItemsPage(userKey: userModel.userKey),
-                ItemsPage(userKey: userModel.userKey),
+                TalkPage(userKey: userModel.userKey),
+                CallPage(userKey: userModel.userKey),
                 MapPage(userModel),
                 ChatListPage(userKey: userModel.userKey),
-                ProfileScreen(userKey: userModel.userKey),
+                OtherScreen(),
               ],
             ),
-      // floatingActionButton: ExpandableFab(
-      //   distance: 90,
-      //   children: [
-      //     MaterialButton(
-      //       onPressed: () {
-      //         // context.beamToNamed('/$LOCATION_INPUT');
-      //       },
-      //       shape: CircleBorder(),
-      //       height: 40,
-      //       color: Theme.of(context).colorScheme.primary,
-      //       child: Icon(Icons.add),
-      //     ),
-      //     MaterialButton(
-      //       onPressed: () {},
-      //       shape: CircleBorder(),
-      //       height: 40,
-      //       color: Theme.of(context).colorScheme.primary,
-      //       child: Icon(Icons.add),
-      //     ),
-      //   ],
-      // ),
-      // appBar: AppBar(
-      //   centerTitle: false,
-      //   title: Text(
-      //     '정왕동',
-      //     style: Theme.of(context).appBarTheme.titleTextStyle,
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //         onPressed: () {
-      //           FirebaseAuth.instance.signOut();
-      //           // context.beamToNamed("/");
-      //         },
-      //         icon: Icon(CupertinoIcons.nosign)),
-      //     IconButton(
-      //         onPressed: () {
-      //           // context.beamToNamed('/$LOCATION_SEARCH');
-      //         },
-      //         icon: Icon(CupertinoIcons.search)),
-      //     IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.text_justify)),
-      //   ],
-      // ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _bottomSelectedIndex,
         type: BottomNavigationBarType.fixed,

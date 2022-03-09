@@ -26,7 +26,7 @@ class Chat extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         ExtendedImage.network(
-          'https://randomuser.me/api/portraits/women/26.jpg',
+          'https://randomuser.me/api/portraits/thumb/men/75.jpg',
           width: 40,
           height: 40,
           fit: BoxFit.cover,

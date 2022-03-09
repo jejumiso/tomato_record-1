@@ -6,7 +6,6 @@ import 'package:tomato_record/data/item_model.dart';
 import 'package:tomato_record/data/user_model.dart';
 import 'package:tomato_record/repo/item_service.dart';
 // import 'package:beamer/beamer.dart';
-import 'package:tomato_record/router/locations.dart';
 
 class MapPage extends StatefulWidget {
   final UserModel _userModel;

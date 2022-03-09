@@ -15,10 +15,14 @@ class UserNotifier extends ChangeNotifier {
   User? _user;
   UserModel? _userModel;
 
+//최초 회원가입 / 로그인 / update은 아님..
   void initUser() {
     FirebaseAuth.instance.authStateChanges().listen((user) async {
+      if (_user == null) {
+      } else {}
+
       if (user != null && _userModel == null) {
-        await _createNewUser(user);
+        await _setNewUser(user);
       } else if (user != null && _userModel != null) {
         //update
       } else {
@@ -30,7 +34,7 @@ class UserNotifier extends ChangeNotifier {
     });
   }
 
-  Future _createNewUser(User? user) async {
+  Future _setNewUser(User? user) async {
     _user = user;
     if (user != null && user.phoneNumber != null) {
       SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -49,16 +53,22 @@ class UserNotifier extends ChangeNotifier {
           geoFirePoint: GeoFirePoint(lat, lon),
           imgUrl: "",
           allowTheUseImgUrl: false,
-          imgUrl2: "",
-          allowTheUseImgUrl2: false,
+          // imgUrl2: "",
+          // allowTheUseImgUrl2: false,
           nickname: "",
-          gender: "M", //M=남자, F=  여자
+          gender: "남자", //M=남자, F=  여자
           age: 30,
+          receiveMsg: true,
+          alramMsg: true,
+          receiveCall: true,
+          alramCall: true,
           state: "Online",
           isBackgroundReceive: false,
           createdDate: DateTime.now().toUtc());
 
+      //처음 등록하는 사용자이면 등록하고 로그인이면 무시하게 되어 있음..
       await UserService().createNewUser(userModel.toJson(), userKey);
+
       _userModel = await UserService().getUserModel(userKey);
       logger.d(_userModel!.toJson().toString());
     }

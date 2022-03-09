@@ -17,6 +17,24 @@ class UserService {
     }
   }
 
+  Future updateUserProfile(UserProfileModel userProfileModel) async {
+    DocumentReference<Map<String, dynamic>> documentReference =
+        FirebaseFirestore.instance
+            .collection(COL_USERS)
+            .doc(userProfileModel.userKey);
+    documentReference.update({
+      "imgUrl": userProfileModel.imgUrl,
+      "age": userProfileModel.age,
+      "nickname": userProfileModel.nickname,
+      "gender": userProfileModel.gender,
+      "allowTheUseImgUrl": userProfileModel.age,
+      "receiveMsg": userProfileModel.receiveMsg,
+      "alramMsg": userProfileModel.alramMsg,
+      "receiveCall": userProfileModel.receiveCall,
+      "alramCall": userProfileModel.alramCall,
+    });
+  }
+
   Future<UserModel> getUserModel(String userKey) async {
     DocumentReference<Map<String, dynamic>> documentReference =
         FirebaseFirestore.instance.collection(COL_USERS).doc(userKey);

@@ -1,6 +1,8 @@
 const COL_USERS = 'users';
 const COL_ITEMS = 'items';
+const COL_TALKS = 'talks';
 const COL_USER_ITEMS = 'user_items';
+const COL_USER_TALKS = 'user_talks';
 const COL_CHATROOMS = 'chatrooms';
 const COL_CHATS = 'chats';
 
@@ -33,3 +35,19 @@ const DOC_ADDRESS = "address";
 const DOC_AGREEMENT = "agreement";
 const DOC_CREATEDDATE = "createdDate";
 const DOC_PHONENUMBER = "phoneNumber";
+const DOC_COMPANY = "company";
+const DOC_IMGURL = "imgUrl";
+const DOC_ALLOWTHEUSEIMGURL = "allowtheuseimgurl";
+// const DOC_IMGURL2 = "imgurl2";
+// const DOC_ALLOWTHEUSEIMGURL2 = "allowtheuseimgurl2";
+const DOC_NICKNAME = "nickname";
+const DOC_USERIMGURL = "userImgUrl";
+const DOC_GENDER = "gender";
+const DOC_AGE = "age";
+const DOC_RECEIVEMSG = 'receivemsg';
+const DOC_ALRAMMSG = 'alrammsg';
+const DOC_RECEIVECALL = 'receivecall';
+const DOC_ALRAMCALL = 'alramcall';
+
+const DOC_STATE = "state";
+const DOC_ISBACKGROUNDRECEIVE = "isbackgroundreceive";

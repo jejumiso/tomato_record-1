@@ -2,11 +2,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:tomato_record/router/locations.dart';
 import 'package:tomato_record/screens/agreement_screen.dart';
+import 'package:tomato_record/screens/chat/chatroom_screen.dart';
 import 'package:tomato_record/screens/home_screen.dart';
+import 'package:tomato_record/screens/others/point_charge_screen.dart';
+import 'package:tomato_record/screens/others/profile_screen.dart';
 import 'package:tomato_record/screens/start_screen.dart';
 import 'package:tomato_record/screens/splash_screen.dart';
+import 'package:tomato_record/screens/talk/talk_wright_screen.dart';
 import 'package:tomato_record/states/user_notifier.dart';
 
 void main() {
@@ -68,9 +71,25 @@ class TomatoApp extends StatelessWidget {
           builder: (BuildContext context, GoRouterState state) =>
               const HomeScreen()),
       GoRoute(
-          path: '/page2',
+          path: '/profile',
           builder: (BuildContext context, GoRouterState state) =>
-              const Page2Screen()),
+              const ProfileScreen()),
+      GoRoute(
+          path: '/talkwright',
+          builder: (BuildContext context, GoRouterState state) =>
+              TalkWrightScreen()),
+      GoRoute(
+          path: '/pointCharge',
+          builder: (BuildContext context, GoRouterState state) =>
+              const PointChargeScreen()),
+      GoRoute(
+          path: '/chat',
+          builder: (BuildContext context, GoRouterState state) =>
+              ChatroomScreen(chatroomKey: state.queryParams['query']!)),
+      // GoRoute(
+      //     path: '/chat',
+      //     builder: (context, state) =>
+      //         ChatroomScreen(chatroomKey: state.queryParams['query']!)),
       GoRoute(
           path: '/start',
           builder: (BuildContext context, GoRouterState state) =>
