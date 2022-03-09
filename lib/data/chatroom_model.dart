@@ -25,9 +25,6 @@ class ChatroomModel {
   late num itemPrice;
   late String sellerKey;
   late String buyerKey;
-  late String sellerImage;
-  late String buyerImage;
-  late GeoFirePoint geoFirePoint;
   late String lastMsg;
   late DateTime lastMsgTime;
   late String lastMsgUserKey;
@@ -42,9 +39,6 @@ class ChatroomModel {
       required this.itemPrice,
       required this.sellerKey,
       required this.buyerKey,
-      required this.sellerImage,
-      required this.buyerImage,
-      required this.geoFirePoint,
       this.lastMsg = "",
       required this.lastMsgTime,
       this.lastMsgUserKey = "",
@@ -59,12 +53,7 @@ class ChatroomModel {
     itemPrice = json[DOC_ITEMPRICE] ?? 0;
     sellerKey = json[DOC_SELLERKEY] ?? "";
     buyerKey = json[DOC_BUYERKEY] ?? "";
-    sellerImage = json[DOC_SELLERIMAGE] ?? "";
-    buyerImage = json[DOC_BUYERIMAGE] ?? "";
-    geoFirePoint = json[DOC_GEOFIREPOINT] == null
-        ? GeoFirePoint(0, 0)
-        : GeoFirePoint((json[DOC_GEOFIREPOINT][DOC_GEOPOINT]).latitude,
-            (json[DOC_GEOFIREPOINT][DOC_GEOPOINT]).longitude);
+
     lastMsg = json[DOC_LASTMSG] ?? "";
     lastMsgTime = json[DOC_LASTMSGTIME] == null
         ? DateTime.now().toUtc()
@@ -81,9 +70,7 @@ class ChatroomModel {
     map[DOC_ITEMPRICE] = itemPrice;
     map[DOC_SELLERKEY] = sellerKey;
     map[DOC_BUYERKEY] = buyerKey;
-    map[DOC_SELLERIMAGE] = sellerImage;
-    map[DOC_BUYERIMAGE] = buyerImage;
-    map[DOC_GEOFIREPOINT] = geoFirePoint.data;
+
     map[DOC_LASTMSG] = lastMsg;
     map[DOC_LASTMSGTIME] = lastMsgTime;
     map[DOC_LASTMSGUSERKEY] = lastMsgUserKey;
@@ -98,6 +85,10 @@ class ChatroomModel {
       : this.fromJson(snapshot.data()!, snapshot.id, snapshot.reference);
 
   static String generateChatRoomKey(String buyer, String itemKey) {
-    return '${itemKey}_$buyer';
+    List<String> d = [buyer, itemKey];
+    d.sort((a, b) => a.compareTo(b));
+    var str = d[0] + "_" + d[1];
+
+    return '$str';
   }
 }

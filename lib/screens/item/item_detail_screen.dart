@@ -75,11 +75,6 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
         itemPrice: itemModel.price,
         sellerKey: itemModel.userKey,
         buyerKey: userModel.userKey,
-        sellerImage:
-            "https://minimaltoolkit.com/images/randomdata/male/101.jpg",
-        buyerImage:
-            'https://minimaltoolkit.com/images/randomdata/female/41.jpg',
-        geoFirePoint: itemModel.geoFirePoint,
         chatroomKey: chatroomKey);
 
     await ChatService().createNewChatroom(_chatroomModel);

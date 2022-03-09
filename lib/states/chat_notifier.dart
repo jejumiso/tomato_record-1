@@ -32,7 +32,6 @@ class ChatNotifier extends ChangeNotifier {
   void addNewChat(ChatModel chatModel) {
     _chatList.insert(0, chatModel);
     notifyListeners();
-
     ChatService().createNewChat(_chatroomKey, chatModel);
   }
 

@@ -204,9 +204,13 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
           )),
           IconButton(
               onPressed: () async {
+                // ChatroomModel chatroomModel = ChatroomModel();
+                // String chatRoomKey =  chatroomModel.generateChatRoomKey("", "");
+
                 ChatModel chatModel = ChatModel(
                     userKey: userModel.userKey,
                     msg: _textEditingController.text,
+                    type: 'msg',
                     createdDate: DateTime.now());
 
                 _chatNotifier.addNewChat(chatModel);

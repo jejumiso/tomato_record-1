@@ -49,5 +49,7 @@ const DOC_ALRAMMSG = 'alrammsg';
 const DOC_RECEIVECALL = 'receivecall';
 const DOC_ALRAMCALL = 'alramcall';
 
+const DOC_TYPE = 'type';
+
 const DOC_STATE = "state";
 const DOC_ISBACKGROUNDRECEIVE = "isbackgroundreceive";

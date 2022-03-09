@@ -31,87 +31,89 @@ class _TalkPageState extends State<TalkPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              Size size = MediaQuery.of(context).size;
-              final imgSize = size.width / 4;
+    return SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                Size size = MediaQuery.of(context).size;
+                final imgSize = size.width / 4;
 
-              return AnimatedSwitcher(
-                  duration: Duration(milliseconds: 1000),
-                  child: (items.isNotEmpty)
-                      ? _listView(imgSize)
-                      : _shimmerListView(imgSize));
-            },
+                return AnimatedSwitcher(
+                    duration: Duration(milliseconds: 1000),
+                    child: (items.isNotEmpty)
+                        ? _listView(imgSize)
+                        : _shimmerListView(imgSize));
+              },
+            ),
           ),
-        ),
-        Row(
-          children: [
-            TextButton(
-                onPressed: () async => await _onRefresh2(''),
-                child: Text('전체', style: TextStyle(fontSize: 12)),
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    primary: Colors.white,
-                    minimumSize: Size(20, 20))),
-            SizedBox(
-              width: 5,
-            ),
-            TextButton(
-                onPressed: () async => await _onRefresh2('사진'),
-                child: Text('사진', style: TextStyle(fontSize: 12)),
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.grey,
-                    primary: Colors.white,
-                    minimumSize: Size(20, 20))),
-            SizedBox(
-              width: 5,
-            ),
-            TextButton(
-                onPressed: () async => await _onRefresh2('동네'),
-                child: Text('동네', style: TextStyle(fontSize: 12)),
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.grey,
-                    primary: Colors.white,
-                    minimumSize: Size(20, 20))),
-            SizedBox(
-              width: 5,
-            ),
-            TextButton(
-                onPressed: () {},
-                child: Text('근처', style: TextStyle(fontSize: 12)),
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.grey,
-                    primary: Colors.white,
-                    minimumSize: Size(20, 20))),
-            SizedBox(
-              width: 5,
-            ),
-            TextButton(
-                onPressed: () {},
-                child: Text('내토크', style: TextStyle(fontSize: 12)),
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.grey,
-                    primary: Colors.white,
-                    minimumSize: Size(20, 20))),
-            SizedBox(
-              width: 5,
-            ),
-            TextButton(
-                onPressed: () => GoRouter.of(context).push('/talkwright'),
-                child: Text('토크쓰기', style: TextStyle(fontSize: 12)),
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.amber,
-                    primary: Colors.white,
-                    minimumSize: Size(20, 20))),
-            SizedBox(
-              width: 5,
-            ),
-          ],
-        )
-      ],
+          Row(
+            children: [
+              TextButton(
+                  onPressed: () async => await _onRefresh2(''),
+                  child: Text('전체', style: TextStyle(fontSize: 12)),
+                  style: TextButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      primary: Colors.white,
+                      minimumSize: Size(20, 20))),
+              SizedBox(
+                width: 5,
+              ),
+              TextButton(
+                  onPressed: () async => await _onRefresh2('사진'),
+                  child: Text('사진', style: TextStyle(fontSize: 12)),
+                  style: TextButton.styleFrom(
+                      backgroundColor: Colors.grey,
+                      primary: Colors.white,
+                      minimumSize: Size(20, 20))),
+              SizedBox(
+                width: 5,
+              ),
+              TextButton(
+                  onPressed: () async => await _onRefresh2('동네'),
+                  child: Text('동네', style: TextStyle(fontSize: 12)),
+                  style: TextButton.styleFrom(
+                      backgroundColor: Colors.grey,
+                      primary: Colors.white,
+                      minimumSize: Size(20, 20))),
+              SizedBox(
+                width: 5,
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: Text('근처', style: TextStyle(fontSize: 12)),
+                  style: TextButton.styleFrom(
+                      backgroundColor: Colors.grey,
+                      primary: Colors.white,
+                      minimumSize: Size(20, 20))),
+              SizedBox(
+                width: 5,
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: Text('내토크', style: TextStyle(fontSize: 12)),
+                  style: TextButton.styleFrom(
+                      backgroundColor: Colors.grey,
+                      primary: Colors.white,
+                      minimumSize: Size(20, 20))),
+              SizedBox(
+                width: 5,
+              ),
+              TextButton(
+                  onPressed: () => GoRouter.of(context).push('/talkwright'),
+                  child: Text('토크쓰기', style: TextStyle(fontSize: 12)),
+                  style: TextButton.styleFrom(
+                      backgroundColor: Colors.amber,
+                      primary: Colors.white,
+                      minimumSize: Size(20, 20))),
+              SizedBox(
+                width: 5,
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 

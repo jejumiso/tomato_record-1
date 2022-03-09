@@ -12,9 +12,9 @@ class ChatService {
 
   Future createNewChatroom(ChatroomModel chatroomModel) async {
     DocumentReference<Map<String, dynamic>> documentReference =
-        FirebaseFirestore.instance.collection(COL_CHATROOMS).doc(
-            ChatroomModel.generateChatRoomKey(
-                chatroomModel.buyerKey, chatroomModel.itemKey));
+        FirebaseFirestore.instance
+            .collection(COL_CHATROOMS)
+            .doc(chatroomModel.chatroomKey);
     final DocumentSnapshot documentSnapshot = await documentReference.get();
 
     if (!documentSnapshot.exists) {
@@ -35,14 +35,14 @@ class ChatService {
 
     await documentReference.set(chatModel.toJson());
 
-    await FirebaseFirestore.instance.runTransaction((transaction) async {
-      transaction.set(documentReference, chatModel.toJson());
-      transaction.update(chatroomDocRef, {
-        DOC_LASTMSG: chatModel.msg,
-        DOC_LASTMSGTIME: chatModel.createdDate,
-        DOC_LASTMSGUSERKEY: chatModel.userKey
-      });
-    });
+    // await FirebaseFirestore.instance.runTransaction((transaction) async {
+    //   transaction.set(documentReference, chatModel.toJson());
+    //   transaction.update(chatroomDocRef, {
+    //     DOC_LASTMSG: chatModel.msg,
+    //     DOC_LASTMSGTIME: chatModel.createdDate,
+    //     DOC_LASTMSGUSERKEY: chatModel.userKey
+    //   });
+    // });
   }
 
   Stream<ChatroomModel> connectChatroom(String chatroomKey) {
